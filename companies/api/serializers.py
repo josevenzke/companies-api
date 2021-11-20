@@ -10,9 +10,11 @@ class EmployeeSerializer(serializers.ModelSerializer):
         fields = ["id", "name", "cpf", "companies"]
 
     def update(self, instance, validated_data):
-        company = validated_data.pop("companies",None)
+        company = validated_data.pop("companies", None)
         if not company:
-            raise serializers.ValidationError({"companies":["No companies value found"]})
+            raise serializers.ValidationError(
+                {"companies": ["No companies value found"]}
+            )
 
         company = Company.objects.get(pk=company[0].id)
         employee = Employee.objects.get(pk=instance.id)
@@ -28,9 +30,11 @@ class CompanySerializer(serializers.ModelSerializer):
         fields = ["id", "name", "cnpj", "employees"]
 
     def update(self, instance, validated_data):
-        employees = validated_data.pop("employees",None)
+        employees = validated_data.pop("employees", None)
         if not employees:
-            raise serializers.ValidationError({"employees":["No employees value found"]})
+            raise serializers.ValidationError(
+                {"employees": ["No employees value found"]}
+            )
 
         employee = Employee.objects.get(pk=employees[0].id)
         company = Company.objects.get(pk=instance.id)

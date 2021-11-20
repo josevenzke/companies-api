@@ -2,15 +2,14 @@ from django.db import models
 from django.core.exceptions import ValidationError
 
 
-
-def validates_cnpj(cnpj:str):
+def validates_cnpj(cnpj: str):
     if not cnpj.isdecimal():
         raise ValidationError("CNPJ value should include only numbers")
     if len(cnpj) != 14:
         raise ValidationError(f"CNPJ length should be 14 not {len(cnpj)}")
 
 
-def validates_cpf(cpf:str):
+def validates_cpf(cpf: str):
     if not cpf.isdecimal():
         raise ValidationError("CPF value should include only numbers")
     if len(cpf) != 11:
