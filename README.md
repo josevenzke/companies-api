@@ -1,6 +1,6 @@
 # Companies API 
 
-Esse é um exemplo de aplicação provendo uma API REST para um manipulação de uma 
+Esse é um exemplo de aplicação provendo uma API REST para a manipulação de uma 
 relação Many-To-Many(MTM), feita com Django/DRF e com a intenção de usar ao máximo
 as vantagens que essas ferramentas trazem para um desenvolvimento eficaz.
 
